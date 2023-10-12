@@ -28,3 +28,13 @@ Next-Hop              {}
 Last update           {}
 Outbound Interface    {}
 """
+# Можно ли как-то подставить list для удаления ненужных символов
+ospf_route = ospf_route.replace(',', '')
+ospf_route = ospf_route.replace('[','')
+ospf_route = ospf_route.replace(']', '')
+ospf_route = ospf_route.split()
+ospf_route.remove('via')
+# ospf_route[1] = ospf_route[1].removeprefix('[')
+
+template = template.format(ospf_route[0],ospf_route[1],ospf_route[2],ospf_route[3],ospf_route[4])
+print(template)

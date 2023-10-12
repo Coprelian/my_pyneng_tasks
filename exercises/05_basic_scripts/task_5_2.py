@@ -30,3 +30,29 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+ip_mask = input('Введите ip и mask в формате (1.1.1.1/24) ').split('/')
+ip = ip_mask[0].split('.')
+mask = '1' * int(ip_mask[1]) + (32 - int(ip_mask[1])) * '0'
+list_mask_bin = [mask[:8], mask[8:16], mask[16:24], mask[24:]]
+list_mask_int = [int(list_mask_bin[0], base = 2), int(list_mask_bin[1], base = 2), int(list_mask_bin[2], base = 2), int(list_mask_bin[3], base = 2)]
+
+template = '''
+\n
+Network:
+{0:8}  {1:8}  {2:8}  {3:8}
+{4:08b}  {5:08b}  {6:08b}  {7:08b}
+
+Mask:
+/{8}
+{9:<8}  {10:<8}  {11:<8}  {12:<8}
+{13:8}  {14:8}  {15:8}  {16:8}
+
+'''
+
+print(template.format(ip[0],ip[1],ip[2],ip[3],
+                      int(ip[0]),int(ip[1]),int(ip[2]),int(ip[3]),
+                      ip_mask[1],
+                      list_mask_int[0], list_mask_int[1], list_mask_int[2], list_mask_int[3],
+                      list_mask_bin[0], list_mask_bin[1], list_mask_bin[2], list_mask_bin[3]))
+

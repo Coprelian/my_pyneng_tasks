@@ -22,3 +22,17 @@
 
 command1 = "switchport trunk allowed vlan 1,2,3,5,8"
 command2 = "switchport trunk allowed vlan 1,3,8,9"
+
+command1 = command1.removeprefix(command1[:command1.find('1')])
+command2 = command2.removeprefix(command2[:command2.find('1')])
+
+#command1 = command1.split()[-1].split(',')
+#command2 = command2.split()[-1].split(',')
+
+result = list(set(command1) & set(command2))
+result.remove(',')
+result.sort()
+
+#command3 = set(command1 + command2)
+#result = list(command3)
+print(result)

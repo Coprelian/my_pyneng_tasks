@@ -21,4 +21,9 @@
 проверять результат.
 """
 
-config = "switchport trunk allowed vlan 1,3,10,20,30,100"
+config = "switchport trunk allowed vlan 1,3,10,20,30,100"\
+
+digit = config.find('1')
+config = config.removeprefix(config[:digit])
+result = config.split(',')
+print(result)
