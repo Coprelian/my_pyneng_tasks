@@ -52,6 +52,7 @@ london_co = {
 }
 
 router = input('Введите имя устройства: ')
-script = format(london_co[router].keys()).removeprefix('dict_keys([').removesuffix('])').replace('\'', '')
+# script = format(london_co[router].keys()).removeprefix('dict_keys([').removesuffix('])').replace('\'', '')
+script = ', '.join(london_co[router].keys())
 setting = input('Введите имя параметра ({}) '.format(script))
 print(london_co[router][setting])

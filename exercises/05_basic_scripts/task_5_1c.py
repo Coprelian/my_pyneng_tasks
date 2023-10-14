@@ -51,7 +51,8 @@ london_co = {
 }
 
 router = input('Введите имя устройства: ')
-router_keys = format(london_co[router].keys()).removeprefix('dict_keys([').removesuffix('])').replace('\'', '')
+# router_keys = format(london_co[router].keys()).removeprefix('dict_keys([').removesuffix('])').replace('\'', '')
+router_keys = ', '.join(london_co[router].keys())
 setting = input('Введите имя параметра ({}) '.format(router_keys))
 print(london_co[router].get(setting, 'Такого параметра нет'))
 
