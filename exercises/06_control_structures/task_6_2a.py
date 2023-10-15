@@ -18,35 +18,33 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
 
-while True:
-   ip = input('Введите ip: ')
-   len_ip = len(ip.split('.'))
-   if len_ip != 4:
-      print('Неправильный IP-адрес')
-   for octet in ip:
+
+ip = input('Введите ip: ')
+len_ip = len(ip.split('.'))
+if len_ip != 4:
+   print('Неправильный IP-адрес')
+else:
+   ip_int = ip.split('.')
+   for octet in ip_int:
       try:
-         int(octet)
+         octet = int(octet)
+         if not 0 <= octet <=255:
+            print('Неправильный IP-адрес')
+            break
       except ValueError:
-         'Неправильный IP-адрес'
+         print('Неправильный IP-адрес')
+         break
+   else:
+      first_octet = int(ip.split('.')[0])
 
-
-   # print(len_ip)
-
-
-    
-
-
-# first_octet = int(ip.split('.')[0])
-
-# if 0 < first_octet <= 223:
-#     result = 'unicast'
-# elif 223 < first_octet <= 239:
-#     result = 'multicast'
-# elif ip == '255.255.255.255':
-#     result = 'local broadcast'
-# elif ip == '0.0.0.0':
-#     result = 'unassigned'
-# else: 
-#     result = 'unused'
-
-# print(result)
+      if 0 < first_octet <= 223:
+         result = 'unicast'
+      elif 223 < first_octet <= 239:
+         result = 'multicast'
+      elif ip == '255.255.255.255':
+         result = 'local broadcast'
+      elif ip == '0.0.0.0':
+         result = 'unassigned'
+      else: 
+         result = 'unused'
+      print(result)
