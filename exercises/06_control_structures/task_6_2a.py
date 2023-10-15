@@ -17,3 +17,36 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+while True:
+   ip = input('Введите ip: ')
+   len_ip = len(ip.split('.'))
+   if len_ip != 4:
+      print('Неправильный IP-адрес')
+   for octet in ip:
+      try:
+         int(octet)
+      except ValueError:
+         'Неправильный IP-адрес'
+
+
+   # print(len_ip)
+
+
+    
+
+
+# first_octet = int(ip.split('.')[0])
+
+# if 0 < first_octet <= 223:
+#     result = 'unicast'
+# elif 223 < first_octet <= 239:
+#     result = 'multicast'
+# elif ip == '255.255.255.255':
+#     result = 'local broadcast'
+# elif ip == '0.0.0.0':
+#     result = 'unassigned'
+# else: 
+#     result = 'unused'
+
+# print(result)
