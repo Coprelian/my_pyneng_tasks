@@ -39,3 +39,11 @@ interface Ethernet0/3
 ...
 
 """
+
+output = ''
+with open('c:\\Users\\steep\\Documents\\dotnetlessons\\gitlessons\\my_pyneng_tasks\\exercises\\07_files\config_sw1.txt', 'r') as f:
+    for line in f:
+        if not line.startswith('!'):
+            output += line
+print(output)
+

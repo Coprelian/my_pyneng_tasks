@@ -17,3 +17,21 @@
 """
 
 ignore = ["duplex", "alias", "configuration"]
+
+output = ''
+with open('c:\\Users\\steep\\Documents\\dotnetlessons\\gitlessons\\my_pyneng_tasks\\exercises\\07_files\\config_sw1.txt', 'r') as f:
+    for line in f:
+        if not line.startswith('!'):
+            line = line.split(' ')
+            wordIgnore_in_line = False
+            for word in line:
+                for word_ignore in ignore:
+                    if word == word_ignore:
+                        wordIgnore_in_line = True
+                        break
+                if wordIgnore_in_line == True:
+                    break
+            else:
+                line = ' '.join(line)            
+                output += line
+print(output)
